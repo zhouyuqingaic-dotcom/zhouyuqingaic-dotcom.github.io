@@ -1,0 +1,45 @@
+baseURL = "https://zhouyuqingaic-dotcom.github.io/"
+languageCode = "zh-cn"
+title = "Yuqing's Blog" # 你的博客标题
+theme = "PaperMod"
+
+[params]
+    env = "production"
+    title = "Yuqing's Blog"
+    description = "探索深度学习与多模态大模型的深度解读"
+    author = "Yuqing"
+    
+    # 首页显示设置（Profile Mode）
+    [params.profileMode]
+        enabled = true
+        title = "Yuqing"
+        subtitle = "AI 研究者 / 专注于 Medical VQA 与多模态学习"
+        imageUrl = "" # 以后可以放一张你的头像
+        [[params.profileMode.buttons]]
+            name = "阅读文章"
+            url = "posts"
+
+    # 功能配置
+    ShowToc = true          # 显示文章目录
+    TocOpen = true          # 默认展开目录
+    math = true             # 开启全局数学公式支持
+    showShareButtons = false # 关闭分享按钮（保持页面简洁）
+
+# 导航栏配置
+[[menu.main]]
+    identifier = "posts"
+    name = "文章解读"
+    url = "/posts/"
+    weight = 10
+
+[[menu.main]]
+    identifier = "tags"
+    name = "标签"
+    url = "/tags/"
+    weight = 20
+
+[[menu.main]]
+    identifier = "search"
+    name = "搜索"
+    url = "/search/"
+    weight = 30
