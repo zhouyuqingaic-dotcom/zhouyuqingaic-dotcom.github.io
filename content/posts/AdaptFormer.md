@@ -1,9 +1,3 @@
-+++
-title = 'AdaptFormer'
-date = 2026-03-28T12:43:08+08:00
-draft = true
-+++
-
 ---
 title: "深度解读：基于多模态大模型的 Medical VQA 域自适应研究"
 date: 2026-03-28T14:00:00+08:00
