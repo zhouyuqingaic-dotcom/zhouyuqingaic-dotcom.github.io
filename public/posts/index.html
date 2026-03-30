@@ -71,9 +71,9 @@
         document.querySelector("html").dataset.theme = 'light';
     }
 
-</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIBMW3Zksd/cgGxgEfeGQ8449uEJ0K0K1A2Gk/Kzzf0Oq5E5qofWXA/s" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117b0lpi0K04hqxcb+hxALbGdJT/1CU0148EofUMk0H03UY" crossorigin="anonymous"></script>
+</script><link rel="stylesheet" href="https://cdn.staticfile.net/KaTeX/0.16.9/katex.min.css">
+<script defer src="https://cdn.staticfile.net/KaTeX/0.16.9/katex.min.js"></script>
+<script defer src="https://cdn.staticfile.net/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         renderMathInElement(document.body, {
@@ -175,9 +175,16 @@
   </header>
   <div class="entry-content">
     <p> 论文基本信息
-Title: AdaptFormer: Adapting Vision Transformers for Scalable Visual Recognition arXiv: 2205.13535 Venue: NeurIPS 2022 1. 核心挑战 在医疗场景下，通用多模态模型（如 Qwen3-VL）直接迁移到特定医学领域（如放射影像）时，往往面临显著的 Domain Gap。本文主要探讨如何通过两阶段域自适应（Two-Stage Domain Adaptation）来提升模型的感知能力。
-2. 核心架构 模型的核心逻辑在于如何平衡通用知识与医学专业知识。
-模型结构图 [ 输入 Token 序列 (x_{l-1}) ] | &#43;-------------------------&#43; | | V | [ LayerNorm 1 ] | | | V | [ Multi-Head Self-Attention ] | | | V | (&#43;) &lt;----------------------&#43; | (中间特征 x&#39;_l) | &#43;-------------------------&#43; | | V | [ LayerNorm 2 ] | | | &#43;---------&#43;---------&#43; (特征分流) | | | | V V | [ Original MLP ] [ Linear Down ] | (Frozen) (Trainable) | | | | | V | | [ ReLU ] | | | | | V | | [ Linear Up ] | | (Trainable) | | | | | V | | [ Scaling (x s) ] | | | | &#43;--------(&#43;)&lt;-------&#43; | | (AdaptMLP 总输出) | V | (&#43;) &lt;----------------------&#43; (主干残差融合) | V [ 输出 Token 序列 (x_l) ] 张量维度变化图 ### 张量维度流转图 [ 输入 Token 序列 (x_{l-1}) ] Shape: [N, d] | v (LayerNorm &#43; MSA) | v [ 中间特征 (x&#39;_l) 包含残差 ] Shape: [N, d] | (LayerNorm) | &#43;---------------------------------------------&#43; | (特征复制分流) | v v [ Original MLP ] (Frozen) [ AdaptMLP ] (Trainable) | | | Linear 1 | Linear Down v v Shape: [N, 4d] Shape: [N, d_bot] (通常扩维 4 倍) (瓶颈维度, d_bot &lt;&lt; d) | | | GELU | ReLU v v Shape: [N, 4d] Shape: [N, d_bot] | | | Linear 2 | Linear Up v v Shape: [N, d] Shape: [N, d] | | | | Scaling (* s) v v &#43;--------------------(&#43;)----------------------&#43; | (特征相加) v Shape: [N, d] | &#43;--------------------(&#43;) &lt;--- (主干残差连回 x&#39;_l) | v [ 输出 Token 序列 (x_l) ] Shape: [N, d] $N$: 序列长度（Sequence Length），即 Patch Tokens 的数量加上 CLS Token。
+Title: AdaptFormer: Adapting Vision Transformers for Scalable Visual Recognition arXiv: 2205.13535 Venue: NeurIPS 2022 1. 核心目标 在多模态大模型（Large Multi-modal Models）的研究中，如何将一个在海量通用数据上预训练好的视觉编码器（如 ViT），高效且紧凑地迁移到数据量有限、领域知识极强的下游任务（如医学影像分析、卫星遥感等），是当前学术界的核心痛点。
+针对这一问题，AdaptFormer 明确提出了以下核心目标：
+打破“全量微调”的算力枷锁： 传统的全量微调（Full Fine-tuning）要求更新模型的所有参数。对于动辄数亿参数的 ViT 骨干网络，这不仅意味着巨大的显存压力（即使是 8 卡 A40 环境下也难以频繁迭代），更会导致模型在小样本任务上迅速陷入过拟合。
+解决“灾难性遗忘”与“知识迁移”的矛盾： 通用的预训练权重包含了极其宝贵的视觉底层特征（如边缘、纹理检测）。AdaptFormer 的目标是寻找一种机制，既能**锁定（Freeze）**这些通用常识，又能通过极少量的可训练参数，敏锐地捕捉特定领域的专业特征，实现知识的平滑迁移。
+探索比 LoRA 更强的非线性拟合潜力： 在视觉任务中，特征的变换往往具有高度的非线性。AdaptFormer 旨在通过引入带有激活函数的瓶颈结构（Bottleneck），探索在参数量极低的前提下，是否能比纯线性的 LoRA 方案表现出更强的任务适应性和收敛性能。
+实现“即插即用”的模块化扩展： 设计一种可以无缝嵌入现有 Transformer 架构的轻量化组件，使得研究者能够针对不同的下游任务训练出独立的“知识插件”，而无需为每个任务都保存一份庞大的全量模型权重。
+2. 核心架构 AdaptFormer 的核心突破在于抛弃了传统的“串联”式 Adapter 设计，转而采用了一种高度解耦的旁路并行（Parallel）结构。 这种设计不仅避免了推理时的额外延迟，还能极其优雅地平衡“通用常识”与“垂直领域知识”。
+具体而言，其核心架构可以拆解为以下几个关键点：
+1. 旁路并行分支 (Parallel Design)
+在标准的 Vision Transformer (ViT) 的每一个 Encoder Block 中，AdaptFormer 保持了多头注意力机制（Multi-Head Attention）和原有的 MLP 层（Original MLP）完全冻结（Frozen）。 它在原始 MLP 旁边“开辟”了一条全新的支路——AdaptMLP。在你的模型微调过程中（例如将大模型迁移至医疗影像等垂直领域时），原始 MLP 负责保留模型预训练阶段学到的宏观通用视觉特征，而这条新增的 AdaptMLP 支路则作为唯一的“可训练区域”，负责吸收和拟合领域特有的专业特征。
 ...</p>
   </div>
   <footer class="entry-footer"><span title='2026-03-29 16:00:00 +0800 CST'>March 29, 2026</span>&nbsp;·&nbsp;<span>Yuqing</span></footer>
