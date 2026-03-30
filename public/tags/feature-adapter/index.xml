@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Feature-Adapter on Yuqing&#39;s Blog</title>
+    <link>http://localhost:1313/tags/feature-adapter/</link>
+    <description>Recent content in Feature-Adapter on Yuqing&#39;s Blog</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 30 Mar 2026 16:00:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/feature-adapter/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CLIP-Adapter 深度解读：特征层级的残差混合艺术</title>
+      <link>http://localhost:1313/posts/clip_adapter/</link>
+      <pubDate>Mon, 30 Mar 2026 16:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/clip_adapter/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;论文基本信息&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Title&lt;/strong&gt;: CLIP-Adapter: Better Vision-Language Models with Feature Adapters&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;arXiv&lt;/strong&gt;: &lt;a href=&#34;https://arxiv.org/abs/2110.04544&#34;&gt;2110.04544&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Venue&lt;/strong&gt;: International Journal of Computer Vision (IJCV) / arXiv 2021
+[cite_start]* &lt;strong&gt;Code&lt;/strong&gt;: &lt;a href=&#34;https://github.com/gaopengcuhk/CLIP-Adapter&#34;&gt;gaopengcuhk/CLIP-Adapter&lt;/a&gt; [cite: 885]&lt;/li&gt;
+&lt;/ul&gt;&lt;/blockquote&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -2,7 +2,7 @@
 title: "AdaptFormer 深度解读：视觉 Transformer 的极简微调美学"
 date: 2026-03-29T16:00:00+08:00
 draft: false
-tags: ["ViT", "PEFT", "Adapter", "Multi-modal"]
+tags: ["ViT", "PEFT", "Feature-Adapter", "Multi-Modal"]
 categories: ["Paper Interpretation"]
 showToc: true
 TocOpen: true
@@ -111,7 +111,7 @@ $$x_l = x'_l + \text{MLP}(\text{LN}(x'_l)) + s \cdot \text{AdaptMLP}(\text{LN}(x
         [ 输出 Token 序列 (x_l) ]
 ```
 
-#### 张量维度变化图
+### 张量维度变化图
 ```text
 ### 张量维度流转图
 
@@ -164,7 +164,7 @@ $4d$: 原始 ViT 内部 MLP 层的中间展开维度，通常是$d$ 的 4 倍。
 $d_{bot}$: AdaptFormer 设置的瓶颈层维度（Bottleneck Dimension）。通过设置$d_{bot} \ll d$（例如 $d = 768$，而 $d_{bot} = 64$），模型在引入极少参数量的情况下完成了特征的非线性映射。
 
 
-#### 论文中核心架构图
+### 论文核心架构图
 ![AdaptFormer fine-tuning](/images/VisualAdapter/AdaptFormer/model_structure.png)
 *(原论文中关于模型结构图的展示与全量微调的对比 )*
 

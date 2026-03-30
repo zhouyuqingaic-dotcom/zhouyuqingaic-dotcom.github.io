@@ -170,6 +170,28 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">CLIP-Adapter 深度解读：特征层级的残差混合艺术
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 论文基本信息
+Title: CLIP-Adapter: Better Vision-Language Models with Feature Adapters arXiv: 2110.04544 Venue: International Journal of Computer Vision (IJCV) / arXiv 2021 1. 核心目标 CLIP-Adapter 的提出并非为了推翻 CLIP，而是为了探索一种比“提示词微调（Prompt Tuning）”更优的适配路径，其核心目标包括 ：
+提供提示词微调之外的替代方案： 论文指出，除了像 CoOp 那样在文本输入端学习连续向量（Prompt Tuning），在视觉或语言分支上使用“特征适配器（Feature Adapters）”进行微调是另一条更有效的路径 。
+实现特征层级的高效适配： 通过在 CLIP 的视觉或文本编码器之后添加轻量级的瓶颈层（Bottleneck Layer），学习新的任务特定特征，而不是直接修改预训练模型庞大的内部参数 。
+知识的“残差式”融合（Residual Blending）： 其最核心的设计目标是利用残差连接，将新学到的下游任务知识与原始 CLIP 存储的通用知识动态融合，从而在提升性能的同时，防止在小样本（Few-shot）任务中出现过拟合 。
+追求极简的设计与极高的效率： 目标是构建一个架构简单、但性能优于环境优化（Context Optimization, CoOp）的模型。在训练效率上，它旨在大幅降低显存占用（从 7193 MiB 降至 2227 MiB）并缩短训练时间（从 14小时 40分钟缩短至 50分钟） 。
+2. 核心架构 CLIP-Adapter 的架构设计体现了“轻量级”与“特征补偿”的理念。 与 AdaptFormer 在 Transformer 块内部逐层插入不同，CLIP-Adapter 采用的是一种非侵入式的顶层外挂结构，重点在于对编码器输出的最终特征进行残差修正 。
+其核心架构可以拆解为以下几个关键维度：
+1.旁路瓶颈层 (Bottleneck Layer)
+CLIP-Adapter 在冻结的视觉和文本编码器之后，分别添加了轻量级的适配器层 。 每个适配器由两个全连接层（Linear Layers）组成，中间嵌入了非线性激活函数 ：
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2026-03-30 16:00:00 +0800 CST'>March 30, 2026</span>&nbsp;·&nbsp;<span>Yuqing</span></footer>
+  <a class="entry-link" aria-label="post link to CLIP-Adapter 深度解读：特征层级的残差混合艺术" href="http://localhost:1313/posts/clip_adapter/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">AdaptFormer 深度解读：视觉 Transformer 的极简微调美学
     </h2>
   </header>
