@@ -72,10 +72,22 @@
         document.querySelector("html").dataset.theme = 'light';
     }
 
-</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIBMW3Zksd/cgGxgEfeGQ8449uEJ0K0K1A2Gk/Kzzf0Oq5E5qofWXA/s" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117b0lpi0K04hqxcb+hxALbGdJT/1CU0148EofUMk0H03UY" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ],
+            throwOnError : false
+        });
+    });
+</script>
 <meta property="og:url" content="http://localhost:1313/">
   <meta property="og:site_name" content="Yuqing&#39;s Blog">
   <meta property="og:title" content="Yuqing&#39;s Blog">
@@ -151,7 +163,7 @@
 <main class="main"><div class="profile">
     <div class="profile_inner">
         <h1>Yuqing</h1>
-        <span>AI 研究者 / 专注于 Medical VQA 与多模态学习</span><div class="social-icons" >
+        <span>AI 研究者 / 专注于多模态学习和通用大模型垂直领域迁移</span><div class="social-icons" >
 </div>
 
         <div class="buttons">

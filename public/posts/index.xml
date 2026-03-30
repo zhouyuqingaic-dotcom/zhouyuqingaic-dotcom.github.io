@@ -6,37 +6,111 @@
     <description>Recent content in Posts on Yuqing&#39;s Blog</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 28 Mar 2026 12:43:08 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 29 Mar 2026 16:00:00 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>AdaptFormer</title>
+      <title>AdaptFormer 深度解读：视觉 Transformer 的极简微调美学</title>
       <link>http://localhost:1313/posts/adaptformer/</link>
-      <pubDate>Sat, 28 Mar 2026 12:43:08 +0800</pubDate>
+      <pubDate>Sun, 29 Mar 2026 16:00:00 +0800</pubDate>
       <guid>http://localhost:1313/posts/adaptformer/</guid>
-      <description>&lt;hr&gt;
-&lt;h2 id=&#34;math-true---开启数学公式渲染&#34;&gt;title: &amp;ldquo;深度解读：基于多模态大模型的 Medical VQA 域自适应研究&amp;rdquo;
-date: 2026-03-28T14:00:00+08:00
-draft: false  # 记得这里一定要改成 false
-tags: [&amp;ldquo;Medical AI&amp;rdquo;, &amp;ldquo;Multi-modal&amp;rdquo;, &amp;ldquo;VQA&amp;rdquo;, &amp;ldquo;Qwen3-VL&amp;rdquo;]
-categories: [&amp;ldquo;Paper Interpretation&amp;rdquo;]
-showToc: true
-TocOpen: true
-math: true  # 开启数学公式渲染&lt;/h2&gt;
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;论文基本信息&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Title&lt;/strong&gt;: AdaptFormer: Adapting Vision Transformers for Scalable Visual Recognition&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;arXiv&lt;/strong&gt;: &lt;a href=&#34;https://arxiv.org/abs/2205.13535&#34;&gt;2205.13535&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Venue&lt;/strong&gt;: NeurIPS 2022&lt;/li&gt;
+&lt;/ul&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;1-核心挑战&#34;&gt;1. 核心挑战&lt;/h2&gt;
 &lt;p&gt;在医疗场景下，通用多模态模型（如 Qwen3-VL）直接迁移到特定医学领域（如放射影像）时，往往面临显著的 &lt;strong&gt;Domain Gap&lt;/strong&gt;。本文主要探讨如何通过两阶段域自适应（Two-Stage Domain Adaptation）来提升模型的感知能力。&lt;/p&gt;
-&lt;h2 id=&#34;2-核心架构ces-net-或-routerb_plus&#34;&gt;2. 核心架构：CES-NET (或 RouterB_Plus)&lt;/h2&gt;
+&lt;h2 id=&#34;2-核心架构&#34;&gt;2. 核心架构&lt;/h2&gt;
 &lt;p&gt;模型的核心逻辑在于如何平衡通用知识与医学专业知识。&lt;/p&gt;
-&lt;h3 id=&#34;关键公式&#34;&gt;关键公式&lt;/h3&gt;
-&lt;p&gt;我们定义的加权损失函数如下：
-$$L_{total} = \alpha L_{vqa} + \beta L_{alignment} + \gamma L_{rag}$$&lt;/p&gt;
-&lt;p&gt;其中，$\alpha, \beta, \gamma$ 是调节各部分权重的超参数。&lt;/p&gt;
-&lt;h2 id=&#34;3-我的深度思考-insight&#34;&gt;3. 我的深度思考 (Insight)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;关于 QLoRA 的应用&lt;/strong&gt;：在 8x A40 服务器上，通过 QLoRA 微调 Qwen3-VL 展现出了极高的显存性价比，但在处理高分辨率医学图像时，Attention 机制的瓶颈依然存在。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;RAG 的必要性&lt;/strong&gt;：单纯靠微调很难让模型记住所有的医学长尾知识，引入检索增强（RAG）结合 BioMedCLIP 的编码能力，能显著降低幻觉。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;4-实验结论&#34;&gt;4. 实验结论&lt;/h2&gt;
-&lt;p&gt;在特定数据集上的测试表明，该方案相较于 Baseline 在 BLEU-4 指标上提升了约 15%。&lt;/p&gt;</description>
+&lt;h3 id=&#34;模型结构图&#34;&gt;模型结构图&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[ 输入 Token 序列 (x_{l-1}) ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  +-------------------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  |                         |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  V                         |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;           [ LayerNorm 1 ]                  |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  |                         |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  V                         |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   [ Multi-Head Self-Attention ]            |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  |                         |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  V                         |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                 (+) &amp;lt;----------------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;           (中间特征 x&amp;#39;_l)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  +-------------------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  |                         |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  V                         |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;           [ LayerNorm 2 ]                  |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  |                         |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        +---------+---------+ (特征分流)     |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        |                   |               |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        V                   V               |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[ Original MLP ]      [ Linear Down ]       |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   (Frozen)            (Trainable)          |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        |                   |               |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        |                   V               |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        |                [ ReLU ]           |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        |                   |               |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        |                   V               |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        |              [ Linear Up ]        |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        |               (Trainable)         |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        |                   |               |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        |                   V               |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        |            [ Scaling (x s) ]      |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        |                   |               |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        +--------(+)&amp;lt;-------+               |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  | (AdaptMLP 总输出)        |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  V                         |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                 (+) &amp;lt;----------------------+ (主干残差融合)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  V
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        [ 输出 Token 序列 (x_l) ]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;张量维度变化图&#34;&gt;张量维度变化图&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;### 张量维度流转图
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[ 输入 Token 序列 (x_{l-1}) ]  Shape: [N, d]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  v
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         (LayerNorm + MSA)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  v
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[ 中间特征 (x&amp;#39;_l) 包含残差 ]   Shape: [N, d]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;             (LayerNorm)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  +---------------------------------------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  | (特征复制分流)                                |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  v                                             v
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       [ Original MLP ] (Frozen)                     [ AdaptMLP ] (Trainable)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  |                                             |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  | Linear 1                                    | Linear Down
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  v                                             v
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            Shape: [N, 4d]                                Shape: [N, d_bot] 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;           (通常扩维 4 倍)                                (瓶颈维度, d_bot &amp;lt;&amp;lt; d)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  |                                             |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  | GELU                                        | ReLU
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  v                                             v
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            Shape: [N, 4d]                                Shape: [N, d_bot]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  |                                             |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  | Linear 2                                    | Linear Up
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  v                                             v
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            Shape: [N, d]                                 Shape: [N, d]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  |                                             |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  |                                             | Scaling (* s)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  v                                             v
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  +--------------------(+)----------------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                        | (特征相加)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                        v
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                  Shape: [N, d]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                        |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                        +--------------------(+) &amp;lt;--- (主干残差连回 x&amp;#39;_l)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                        |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                        v
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          [ 输出 Token 序列 (x_l) ]    Shape: [N, d]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;$N$: 序列长度（Sequence Length），即 Patch Tokens 的数量加上 CLS Token。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

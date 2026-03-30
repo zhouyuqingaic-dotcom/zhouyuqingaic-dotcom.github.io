@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Qwen3-VL on Yuqing&#39;s Blog</title>
+    <link>http://localhost:1313/tags/qwen3-vl/</link>
+    <description>Recent content in Qwen3-VL on Yuqing&#39;s Blog</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 28 Mar 2026 14:00:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/qwen3-vl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>深度解读：基于多模态大模型的 Medical VQA 域自适应研究</title>
+      <link>http://localhost:1313/posts/adaptformer/</link>
+      <pubDate>Sat, 28 Mar 2026 14:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/adaptformer/</guid>
+      <description>&lt;h2 id=&#34;1-核心挑战&#34;&gt;1. 核心挑战&lt;/h2&gt;
+&lt;p&gt;在医疗场景下，通用多模态模型（如 Qwen3-VL）直接迁移到特定医学领域（如放射影像）时，往往面临显著的 &lt;strong&gt;Domain Gap&lt;/strong&gt;。本文主要探讨如何通过两阶段域自适应（Two-Stage Domain Adaptation）来提升模型的感知能力。&lt;/p&gt;
+&lt;h2 id=&#34;2-核心架构ces-net-或-routerb_plus&#34;&gt;2. 核心架构：CES-NET (或 RouterB_Plus)&lt;/h2&gt;
+&lt;p&gt;模型的核心逻辑在于如何平衡通用知识与医学专业知识。&lt;/p&gt;
+&lt;h3 id=&#34;关键公式&#34;&gt;关键公式&lt;/h3&gt;
+&lt;p&gt;我们定义的加权损失函数如下：
+$$L_{total} = \alpha L_{vqa} + \beta L_{alignment} + \gamma L_{rag}$$&lt;/p&gt;
+&lt;p&gt;其中，$\alpha, \beta, \gamma$ 是调节各部分权重的超参数。&lt;/p&gt;
+&lt;h2 id=&#34;3-我的深度思考-insight&#34;&gt;3. 我的深度思考 (Insight)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;关于 QLoRA 的应用&lt;/strong&gt;：在 8x A40 服务器上，通过 QLoRA 微调 Qwen3-VL 展现出了极高的显存性价比，但在处理高分辨率医学图像时，Attention 机制的瓶颈依然存在。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;RAG 的必要性&lt;/strong&gt;：单纯靠微调很难让模型记住所有的医学长尾知识，引入检索增强（RAG）结合 BioMedCLIP 的编码能力，能显著降低幻觉。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;4-实验结论&#34;&gt;4. 实验结论&lt;/h2&gt;
+&lt;p&gt;在特定数据集上的测试表明，该方案相较于 Baseline 在 BLEU-4 指标上提升了约 15%。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;em&gt;本文由 Yuqing 撰写，转载请注明出处。&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

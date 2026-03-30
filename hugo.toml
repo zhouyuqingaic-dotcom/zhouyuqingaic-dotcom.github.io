@@ -13,7 +13,7 @@ theme = "PaperMod"
     [params.profileMode]
         enabled = true
         title = "Yuqing"
-        subtitle = "AI 研究者 / 专注于 Medical VQA 与多模态学习"
+        subtitle = "AI 研究者 / 专注于多模态学习和通用大模型垂直领域迁移"
         imageUrl = "" # 以后可以放一张你的头像
         [[params.profileMode.buttons]]
             name = "阅读文章"
@@ -43,3 +43,13 @@ theme = "PaperMod"
     name = "搜索"
     url = "/search/"
     weight = 30
+
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['\[', '\]'], ['$$', '$$']]
+          inline = [['\(', '\)'], ['$', '$']]

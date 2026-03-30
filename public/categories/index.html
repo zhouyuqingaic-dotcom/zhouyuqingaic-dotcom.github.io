@@ -71,10 +71,22 @@
         document.querySelector("html").dataset.theme = 'light';
     }
 
-</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIBMW3Zksd/cgGxgEfeGQ8449uEJ0K0K1A2Gk/Kzzf0Oq5E5qofWXA/s" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117b0lpi0K04hqxcb+hxALbGdJT/1CU0148EofUMk0H03UY" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ],
+            throwOnError : false
+        });
+    });
+</script>
 <meta property="og:url" content="http://localhost:1313/categories/">
   <meta property="og:site_name" content="Yuqing&#39;s Blog">
   <meta property="og:title" content="Categories">
@@ -140,6 +152,9 @@
 </header>
 
 <ul class="terms-tags">
+    <li>
+        <a href="http://localhost:1313/categories/paper-interpretation/">Paper Interpretation <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
 </ul>
     </main>
     
