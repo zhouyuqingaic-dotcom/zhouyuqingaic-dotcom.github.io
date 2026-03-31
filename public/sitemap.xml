@@ -2,34 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/tags/adapter/</loc>
-    <lastmod>2026-03-29T16:00:00+08:00</lastmod>
+    <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2026-03-30T16:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/clip/</loc>
+    <lastmod>2026-03-30T16:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/clip_adapter/</loc>
+    <lastmod>2026-03-30T16:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/feature-adapter/</loc>
+    <lastmod>2026-03-30T16:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/multi-modal/</loc>
+    <lastmod>2026-03-30T16:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/paper-interpretation/</loc>
+    <lastmod>2026-03-30T16:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/peft/</loc>
+    <lastmod>2026-03-30T16:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2026-03-30T16:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2026-03-30T16:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/vit/</loc>
+    <lastmod>2026-03-30T16:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2026-03-30T16:00:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/adaptformer/</loc>
     <lastmod>2026-03-29T16:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2026-03-29T16:00:00+08:00</lastmod>
+    <loc>http://localhost:1313/tags/llm/</loc>
+    <lastmod>2026-02-22T21:20:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/multi-modal/</loc>
-    <lastmod>2026-03-29T16:00:00+08:00</lastmod>
+    <loc>http://localhost:1313/tags/moe/</loc>
+    <lastmod>2026-02-22T21:20:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/paper-interpretation/</loc>
-    <lastmod>2026-03-29T16:00:00+08:00</lastmod>
+    <loc>http://localhost:1313/tags/mova/</loc>
+    <lastmod>2026-02-22T21:20:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/peft/</loc>
-    <lastmod>2026-03-29T16:00:00+08:00</lastmod>
+    <loc>http://localhost:1313/posts/mova/</loc>
+    <lastmod>2026-02-22T21:20:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2026-03-29T16:00:00+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2026-03-29T16:00:00+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/vit/</loc>
-    <lastmod>2026-03-29T16:00:00+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2026-03-29T16:00:00+08:00</lastmod>
+    <loc>http://localhost:1313/tags/vision-encoder/</loc>
+    <lastmod>2026-02-22T21:20:00+08:00</lastmod>
   </url>
 </urlset>

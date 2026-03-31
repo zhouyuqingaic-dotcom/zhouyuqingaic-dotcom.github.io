@@ -160,10 +160,42 @@
   </header>
   <div class="entry-content">
     <p> 论文基本信息
-Title: CLIP-Adapter: Better Vision-Language Models with Feature Adapters arXiv: 2110.04544 Venue: International Journal of Computer Vision (IJCV) / arXiv 2021 [cite_start]* Code: gaopengcuhk/CLIP-Adapter [cite: 885] </p>
+Title: CLIP-Adapter: Better Vision-Language Models with Feature Adapters arXiv: 2110.04544 Venue: International Journal of Computer Vision (IJCV) / arXiv 2021 1. 核心目标 CLIP-Adapter 的提出并非为了推翻 CLIP，而是为了探索一种比“提示词微调（Prompt Tuning）”更优的适配路径，其核心目标包括 ：
+提供提示词微调之外的替代方案： 论文指出，除了像 CoOp 那样在文本输入端学习连续向量（Prompt Tuning），在视觉或语言分支上使用“特征适配器（Feature Adapters）”进行微调是另一条更有效的路径 。
+实现特征层级的高效适配： 通过在 CLIP 的视觉或文本编码器之后添加轻量级的瓶颈层（Bottleneck Layer），学习新的任务特定特征，而不是直接修改预训练模型庞大的内部参数 。
+知识的“残差式”融合（Residual Blending）： 其最核心的设计目标是利用残差连接，将新学到的下游任务知识与原始 CLIP 存储的通用知识动态融合，从而在提升性能的同时，防止在小样本（Few-shot）任务中出现过拟合 。
+追求极简的设计与极高的效率： 目标是构建一个架构简单、但性能优于环境优化（Context Optimization, CoOp）的模型。在训练效率上，它旨在大幅降低显存占用（从 7193 MiB 降至 2227 MiB）并缩短训练时间（从 14小时 40分钟缩短至 50分钟） 。
+2. 核心架构 CLIP-Adapter 的架构设计体现了“轻量级”与“特征补偿”的理念。 与 AdaptFormer 在 Transformer 块内部逐层插入不同，CLIP-Adapter 采用的是一种非侵入式的顶层外挂结构，重点在于对编码器输出的最终特征进行残差修正 。
+其核心架构可以拆解为以下几个关键维度：
+1.旁路瓶颈层 (Bottleneck Layer)
+CLIP-Adapter 在冻结的视觉和文本编码器之后，分别添加了轻量级的适配器层 。 每个适配器由两个全连接层（Linear Layers）组成，中间嵌入了非线性激活函数 ：
+...</p>
   </div>
   <footer class="entry-footer"><span title='2026-03-30 16:00:00 +0800 CST'>March 30, 2026</span>&nbsp;·&nbsp;<span>Yuqing</span></footer>
   <a class="entry-link" aria-label="post link to CLIP-Adapter 深度解读：特征层级的残差混合艺术" href="http://localhost:1313/posts/clip_adapter/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">AdaptFormer 深度解读：视觉 Transformer 的极简微调美学
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 论文基本信息
+Title: AdaptFormer: Adapting Vision Transformers for Scalable Visual Recognition arXiv: 2205.13535 Venue: NeurIPS 2022 1. 核心目标 在多模态大模型（Large Multi-modal Models）的研究中，如何将一个在海量通用数据上预训练好的视觉编码器（如 ViT），高效且紧凑地迁移到数据量有限、领域知识极强的下游任务（如医学影像分析、卫星遥感等），是当前学术界的核心痛点。
+针对这一问题，AdaptFormer 明确提出了以下核心目标：
+打破“全量微调”的算力枷锁： 传统的全量微调（Full Fine-tuning）要求更新模型的所有参数。对于动辄数亿参数的 ViT 骨干网络，这不仅意味着巨大的显存压力（即使是 8 卡 A40 环境下也难以频繁迭代），更会导致模型在小样本任务上迅速陷入过拟合。
+解决“灾难性遗忘”与“知识迁移”的矛盾： 通用的预训练权重包含了极其宝贵的视觉底层特征（如边缘、纹理检测）。AdaptFormer 的目标是寻找一种机制，既能**锁定（Freeze）**这些通用常识，又能通过极少量的可训练参数，敏锐地捕捉特定领域的专业特征，实现知识的平滑迁移。
+探索比 LoRA 更强的非线性拟合潜力： 在视觉任务中，特征的变换往往具有高度的非线性。AdaptFormer 旨在通过引入带有激活函数的瓶颈结构（Bottleneck），探索在参数量极低的前提下，是否能比纯线性的 LoRA 方案表现出更强的任务适应性和收敛性能。
+实现“即插即用”的模块化扩展： 设计一种可以无缝嵌入现有 Transformer 架构的轻量化组件，使得研究者能够针对不同的下游任务训练出独立的“知识插件”，而无需为每个任务都保存一份庞大的全量模型权重。
+2. 核心架构 AdaptFormer 的核心突破在于抛弃了传统的“串联”式 Adapter 设计，转而采用了一种高度解耦的旁路并行（Parallel）结构。 这种设计不仅避免了推理时的额外延迟，还能极其优雅地平衡“通用常识”与“垂直领域知识”。
+具体而言，其核心架构可以拆解为以下几个关键点：
+1. 旁路并行分支 (Parallel Design)
+在标准的 Vision Transformer (ViT) 的每一个 Encoder Block 中，AdaptFormer 保持了多头注意力机制（Multi-Head Attention）和原有的 MLP 层（Original MLP）完全冻结（Frozen）。 它在原始 MLP 旁边“开辟”了一条全新的支路——AdaptMLP。在你的模型微调过程中（例如将大模型迁移至医疗影像等垂直领域时），原始 MLP 负责保留模型预训练阶段学到的宏观通用视觉特征，而这条新增的 AdaptMLP 支路则作为唯一的“可训练区域”，负责吸收和拟合领域特有的专业特征。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2026-03-29 16:00:00 +0800 CST'>March 29, 2026</span>&nbsp;·&nbsp;<span>Yuqing</span></footer>
+  <a class="entry-link" aria-label="post link to AdaptFormer 深度解读：视觉 Transformer 的极简微调美学" href="http://localhost:1313/posts/adaptformer/"></a>
 </article>
     </main>
     
