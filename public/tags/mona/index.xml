@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Vision-Encoder on Yuqing&#39;s Blog</title>
-    <link>http://localhost:1313/tags/vision-encoder/</link>
-    <description>Recent content in Vision-Encoder on Yuqing&#39;s Blog</description>
+    <title>Mona on Yuqing&#39;s Blog</title>
+    <link>http://localhost:1313/tags/mona/</link>
+    <description>Recent content in Mona on Yuqing&#39;s Blog</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
     <lastBuildDate>Thu, 16 Apr 2026 12:07:00 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/vision-encoder/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/mona/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mona 深度解读：拒绝流形坍塌，基于多尺度 2D 拓扑重构的视觉适配器</title>
       <link>http://localhost:1313/posts/mona/</link>
@@ -35,38 +35,6 @@
 &lt;/ol&gt;
 &lt;p&gt;&lt;strong&gt;困境二：冻结骨干网络带来的“空间拓扑撕裂”与“证据模糊”&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;为了规避上述的灾难，常规的退路是：彻底冻结（Freeze）视觉主干网络，完全保留其泛化先验，仅仅在特征输出端接一个线性投影层（MLP Projector / Q-Former），或者使用标准的 NLP 线性微调方案（如 QLoRA）。但这对于需要“精准语义注入”的架构来说，无异于饮鸩止渴：&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>MoVA 深度解读：多视觉专家的上下文感知路由与融合艺术</title>
-      <link>http://localhost:1313/posts/mova/</link>
-      <pubDate>Sun, 22 Feb 2026 21:20:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/mova/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;论文基本信息&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Title&lt;/strong&gt;: MoVA — MoVA: Adapting Mixture of Vision Experts to Multimodal Context&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;arXiv&lt;/strong&gt;: &lt;a href=&#34;https://arxiv.org/abs/2404.13046&#34;&gt;2404.13046&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Venue&lt;/strong&gt;: Venue: Advances in Neural Information Processing Systems (NeurIPS 2024) / arXiv 2024&lt;/li&gt;
-&lt;/ul&gt;&lt;/blockquote&gt;
-&lt;h2 id=&#34;1核心目标&#34;&gt;1.核心目标&lt;/h2&gt;
-&lt;p&gt;MoVA 的核心目标可以精准概括为：在多模态大语言模型（MLLMs）中，突破单一视觉编码器的能力瓶颈，
-并克服多视觉专家“暴力拼接”带来的特征干扰与性能退化，实现“由粗到细”的动态自适应特征融合&lt;/p&gt;
-&lt;p&gt;并聚焦多模态领域长期存在的几个痛点：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;打破单一模型的“偏科”与偏见 (Alleviating Vision Encoder Bias)：&lt;/strong&gt; 像 CLIP 这样的预训练模型在通用语义对齐上极强，
-但在处理细粒度任务（如文档阅读、图表解析或医疗影像识别）时往往表现糟糕 。
-MoVA 旨在通过引入异构的视觉专家库，给大模型配上一副“多焦距眼镜”，彻底打破单一视觉表征的认知局限。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;摒弃破坏信噪比的“无脑拼接” (Rejecting Plain Fusion)：&lt;/strong&gt; 传统的融合方式是将多个专家的特征在通道或序列上直接拼接 。
-论文明确指出，这种简单融合会把无关专家提取的“偏见信息”（噪声）强行塞给 LLM，导致在某些特定任务上性能不升反降 。
-MoVA 的目标是构建一个灵活的机制，只提取和当前任务高度相关的特征 。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;由粗到细的按需分配 (Coarse-to-fine Adaptive Routing and Fusion)：&lt;/strong&gt; 为了兼顾计算效率与多模态感知，MoVA 确立了双阶段的战略目标 。
-在宏观层面，利用 LLM 强大的理解能力进行“上下文感知路由（Context-aware routing）”，
-根据指令和图像动态挑选最匹配的专家 ；在微观层面，通过专用的 MoV-Adapter 提取并在底层动态加权融合这些专家的知识 。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

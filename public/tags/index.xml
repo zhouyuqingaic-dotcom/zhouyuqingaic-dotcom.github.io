@@ -6,8 +6,43 @@
     <description>Recent content in Tags on Yuqing&#39;s Blog</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 30 Mar 2026 16:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 16 Apr 2026 12:07:00 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Computer Vision</title>
+      <link>http://localhost:1313/tags/computer-vision/</link>
+      <pubDate>Thu, 16 Apr 2026 12:07:00 +0800</pubDate>
+      <guid>http://localhost:1313/tags/computer-vision/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mona</title>
+      <link>http://localhost:1313/tags/mona/</link>
+      <pubDate>Thu, 16 Apr 2026 12:07:00 +0800</pubDate>
+      <guid>http://localhost:1313/tags/mona/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>PEFT</title>
+      <link>http://localhost:1313/tags/peft/</link>
+      <pubDate>Thu, 16 Apr 2026 12:07:00 +0800</pubDate>
+      <guid>http://localhost:1313/tags/peft/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vision-Encoder</title>
+      <link>http://localhost:1313/tags/vision-encoder/</link>
+      <pubDate>Thu, 16 Apr 2026 12:07:00 +0800</pubDate>
+      <guid>http://localhost:1313/tags/vision-encoder/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Visual Adapter</title>
+      <link>http://localhost:1313/tags/visual-adapter/</link>
+      <pubDate>Thu, 16 Apr 2026 12:07:00 +0800</pubDate>
+      <guid>http://localhost:1313/tags/visual-adapter/</guid>
+      <description></description>
+    </item>
     <item>
       <title>CLIP</title>
       <link>http://localhost:1313/tags/clip/</link>
@@ -27,13 +62,6 @@
       <link>http://localhost:1313/tags/multi-modal/</link>
       <pubDate>Mon, 30 Mar 2026 16:00:00 +0800</pubDate>
       <guid>http://localhost:1313/tags/multi-modal/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>PEFT</title>
-      <link>http://localhost:1313/tags/peft/</link>
-      <pubDate>Mon, 30 Mar 2026 16:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/tags/peft/</guid>
       <description></description>
     </item>
     <item>
@@ -62,13 +90,6 @@
       <link>http://localhost:1313/tags/mova/</link>
       <pubDate>Sun, 22 Feb 2026 21:20:00 +0800</pubDate>
       <guid>http://localhost:1313/tags/mova/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Vision-Encoder</title>
-      <link>http://localhost:1313/tags/vision-encoder/</link>
-      <pubDate>Sun, 22 Feb 2026 21:20:00 +0800</pubDate>
-      <guid>http://localhost:1313/tags/vision-encoder/</guid>
       <description></description>
     </item>
   </channel>

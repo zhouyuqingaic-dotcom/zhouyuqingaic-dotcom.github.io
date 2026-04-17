@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Categories | Yuqing&#39;s Blog</title>
+<title>Computer Vision | Yuqing&#39;s Blog</title>
 <meta name="keywords" content="">
 <meta name="description" content="探索深度学习与多模态大模型的深度解读">
 <meta name="author" content="Yuqing">
-<link rel="canonical" href="http://localhost:1313/categories/">
+<link rel="canonical" href="http://localhost:1313/tags/computer-vision/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.c2189e7d36d72767de292f8b9d897e4a464aa5bc7eb692cda50064f5eb9eeece.css" integrity="sha256-whiefTbXJ2feKS&#43;LnYl&#43;SkZKpbx&#43;tpLNpQBk9eue7s4=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
@@ -18,8 +18,8 @@
 <link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/categories/index.xml" title="rss">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/categories/">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/tags/computer-vision/index.xml" title="rss">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/tags/computer-vision/">
 <noscript>
     <style>
         #theme-toggle,
@@ -87,15 +87,15 @@
         });
     });
 </script>
-<meta property="og:url" content="http://localhost:1313/categories/">
+<meta property="og:url" content="http://localhost:1313/tags/computer-vision/">
   <meta property="og:site_name" content="Yuqing&#39;s Blog">
-  <meta property="og:title" content="Categories">
+  <meta property="og:title" content="Computer Vision">
   <meta property="og:description" content="探索深度学习与多模态大模型的深度解读">
   <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="website">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Categories">
+  <meta name="twitter:title" content="Computer Vision">
   <meta name="twitter:description" content="探索深度学习与多模态大模型的深度解读">
 
 </head>
@@ -146,16 +146,33 @@
         </ul>
     </nav>
 </header>
-<main class="main">
+<main class="main"> 
 <header class="page-header">
-    <h1>Categories</h1>
+  <h1>
+    Computer Vision
+  </h1>
 </header>
 
-<ul class="terms-tags">
-    <li>
-        <a href="http://localhost:1313/categories/paper-interpretation/">Paper Interpretation <sup><strong><sup>4</sup></strong></sup> </a>
-    </li>
-</ul>
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Mona 深度解读：拒绝流形坍塌，基于多尺度 2D 拓扑重构的视觉适配器
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 论文基本信息
+Title: 5%&gt;100%: Breaking Performance Shackles of Full Fine-Tuning on Visual Recognition Tasks arXiv: 2408.08345 Venue: IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) / arXiv 2024 1.核心目标 当构建极其依赖视觉“证据（Evidence）”与大模型“上下文（Context）”进行协同推理的网络架构时，视觉端的特征提取是整个系统成败的阿喀琉斯之踵。
+这里的“两难困境”，本质上是“领域知识的极度渴求”与“预训练泛化先验的保护”之间的严重物理冲突。具体来说，分为以下两端：
+困境一：全量微调带来的“流形坍塌”与“资源黑洞
+为了让网络具备极高的视觉精度（比如能精准识别医疗影像中低对比度的毛玻璃影、极其微小的病灶边缘），最直觉的做法是放开整个视觉编码器（Vision Encoder），用特定领域的图像进行 100% 全量微调。但这条路会踩中两个致命陷阱：
+视觉流形的灾难性遗忘： 视觉大模型（如高分辨率的 ViT 或 Swin）在海量自然图像上预训练时，建立了一个极度宽广、鲁棒的“通用视觉流形”。如果用数据量相对较小、且视觉特征极其单一（如只有灰阶的医学 X 光片）的垂直域数据去全量冲洗它，模型会迅速过拟合。它原本能识别万物的底层感受野会发生空间坍塌。这就导致当它进入后续能力对齐阶段（如 Stage 2）与 LLM 协同推理复杂场景时，视觉端提供的特征已经变得畸形且狭隘。
+算力与显存的灾难： 如果频繁对高维度的多模态大模型底座进行全量参数更新、甚至涉及庞大的梯度检查点保存，通信开销和显存占用都是难以承受的，极大地限制了算法迭代和多阶段（Stage 0 -&gt; Stage 1 -&gt; Stage 2）实验的吞吐效率。
+困境二：冻结骨干网络带来的“空间拓扑撕裂”与“证据模糊”
+为了规避上述的灾难，常规的退路是：彻底冻结（Freeze）视觉主干网络，完全保留其泛化先验，仅仅在特征输出端接一个线性投影层（MLP Projector / Q-Former），或者使用标准的 NLP 线性微调方案（如 QLoRA）。但这对于需要“精准语义注入”的架构来说，无异于饮鸩止渴：
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2026-04-16 12:07:00 +0800 CST'>April 16, 2026</span>&nbsp;·&nbsp;<span>Yuqing</span></footer>
+  <a class="entry-link" aria-label="post link to Mona 深度解读：拒绝流形坍塌，基于多尺度 2D 拓扑重构的视觉适配器" href="http://localhost:1313/posts/mona/"></a>
+</article>
     </main>
     
 <footer class="footer">
