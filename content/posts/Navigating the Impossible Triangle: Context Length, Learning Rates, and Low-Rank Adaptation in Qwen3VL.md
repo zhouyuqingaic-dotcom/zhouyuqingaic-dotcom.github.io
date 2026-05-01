@@ -2,8 +2,8 @@
 title: "多模态微调的“不可能三角”：时间步、学习率与 Qwen3VL-LoRA 实战"
 date: 2026-04-29T16:00:00+08:00
 draft: false
-tags: ["Qwen-VL"]
-categories: ["Self Article"]
+tags: ["Qwen-VL","LoRA","VLM","多模态微调","调参经验","Loss Spike","NaN 报错","Medical VQA"]
+categories: ["Self Article","大模型实战","AI 炼丹录"]
 showToc: true
 TocOpen: true
 math: true
