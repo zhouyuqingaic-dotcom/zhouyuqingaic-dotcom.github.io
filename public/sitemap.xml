@@ -3,7 +3,100 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2026-04-16T12:07:00+08:00</lastmod>
+    <lastmod>2026-06-21T20:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/cross-attention/</loc>
+    <lastmod>2026-06-21T20:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/few-shot-learning/</loc>
+    <lastmod>2026-06-21T20:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/flamingo/</loc>
+    <lastmod>2026-06-21T20:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/flamingo/</loc>
+    <lastmod>2026-06-21T20:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/in-context-learning/</loc>
+    <lastmod>2026-06-21T20:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/multi-modal/</loc>
+    <lastmod>2026-06-21T20:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/paper-interpretation/</loc>
+    <lastmod>2026-06-21T20:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2026-06-21T20:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2026-06-21T20:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/vlm/</loc>
+    <lastmod>2026-06-21T20:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2026-06-21T20:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/adapter/</loc>
+    <lastmod>2026-05-16T21:16:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/parameter-efficient-transfer-learning-for-nlp/</loc>
+    <lastmod>2026-05-16T21:16:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/bottleneck/</loc>
+    <lastmod>2026-05-16T21:16:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/llama-adapter/</loc>
+    <lastmod>2026-05-16T21:16:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/lora/</loc>
+    <lastmod>2026-05-16T21:16:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/peft/</loc>
+    <lastmod>2026-05-16T21:16:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/ai-%E7%82%BC%E4%B8%B9%E5%BD%95/</loc>
+    <lastmod>2026-04-29T16:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/generalization/</loc>
+    <lastmod>2026-04-29T16:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/hypothesis-space/</loc>
+    <lastmod>2026-04-29T16:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/inductive-bias/</loc>
+    <lastmod>2026-04-29T16:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/loss-spike/</loc>
+    <lastmod>2026-04-29T16:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/medical-vqa/</loc>
+    <lastmod>2026-04-29T16:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/nan-%E6%8A%A5%E9%94%99/</loc>
+    <lastmod>2026-04-29T16:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/qwen-vl/</loc>
+    <lastmod>2026-04-29T16:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/self-article/</loc>
+    <lastmod>2026-04-29T16:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/%E5%A4%9A%E6%A8%A1%E6%80%81%E5%BE%AE%E8%B0%83/</loc>
+    <lastmod>2026-04-29T16:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/navigating-the-impossible-triangle-context-length-learning-rates-and-low-rank-adaptation-in-qwen3vl/</loc>
+    <lastmod>2026-04-29T16:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AE%9E%E6%88%98/</loc>
+    <lastmod>2026-04-29T16:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/intelligence-in-chains-the-art-of-constraining-hypothesis-space-in-qwen3-vl/</loc>
+    <lastmod>2026-04-29T16:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/%E8%B0%83%E5%8F%82%E7%BB%8F%E9%AA%8C/</loc>
+    <lastmod>2026-04-29T16:00:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/computer-vision/</loc>
     <lastmod>2026-04-16T12:07:00+08:00</lastmod>
@@ -14,25 +107,10 @@
     <loc>http://localhost:1313/posts/mona/</loc>
     <lastmod>2026-04-16T12:07:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/paper-interpretation/</loc>
-    <lastmod>2026-04-16T12:07:00+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/peft/</loc>
-    <lastmod>2026-04-16T12:07:00+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2026-04-16T12:07:00+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2026-04-16T12:07:00+08:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/tags/vision-encoder/</loc>
     <lastmod>2026-04-16T12:07:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/visual-adapter/</loc>
-    <lastmod>2026-04-16T12:07:00+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/</loc>
     <lastmod>2026-04-16T12:07:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/clip/</loc>
@@ -42,9 +120,6 @@
     <lastmod>2026-03-30T16:00:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/feature-adapter/</loc>
-    <lastmod>2026-03-30T16:00:00+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/multi-modal/</loc>
     <lastmod>2026-03-30T16:00:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/vit/</loc>

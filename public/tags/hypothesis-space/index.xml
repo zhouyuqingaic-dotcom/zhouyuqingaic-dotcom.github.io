@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Hypothesis Space on Yuqing&#39;s Blog</title>
+    <link>http://localhost:1313/tags/hypothesis-space/</link>
+    <description>Recent content in Hypothesis Space on Yuqing&#39;s Blog</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 29 Apr 2026 16:00:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/hypothesis-space/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>戴着镣铐的智能：从 Qwen3-VL 看假设空间的约束艺术</title>
+      <link>http://localhost:1313/posts/intelligence-in-chains-the-art-of-constraining-hypothesis-space-in-qwen3-vl/</link>
+      <pubDate>Wed, 29 Apr 2026 16:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/intelligence-in-chains-the-art-of-constraining-hypothesis-space-in-qwen3-vl/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Title&lt;/strong&gt;: Intelligence in Chains: The Art of Constraining Hypothesis Space in Qwen3-VL&lt;/p&gt;&lt;/blockquote&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;&amp;ldquo;如果把 $f^*$ 看作是一颗被发现的钻石，那么假设空间 $\mathcal{H}$ 就是孕育它的矿脉。没有外部压力的‘约束’，碳原子只会散落成灰；唯有在高压与禁锢的边缘，结构化的智能 (Intelligence) 才会真正涌现。&amp;rdquo;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;—— 关于泛化与约束的思辨&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;1-序言从混沌到秩序&#34;&gt;1. 序言：从混沌到秩序&lt;/h2&gt;
+&lt;p&gt;在机器学习的宇宙中，每一个模型在诞生之初都面临着一种“无限的诱惑”。&lt;/p&gt;
+&lt;p&gt;当我们谈论“学习”时，其本质是在一个名为假设空间（Hypothesis Space, $\mathcal{H}$）的函数集合中进行搜索。这个空间里躺着无数种可能的解释：
+有的简单如直线，有的复杂如乱麻。如果这个空间是无边界的， 模型就会像一个拥有无限记忆力却毫无逻辑的孩子，
+能够精准地背诵出训练集里的每一个细节（包括噪声），却在面对新面孔时彻底失灵。&lt;/p&gt;
+&lt;p&gt;这就是过拟合（Overfitting）的真相——过度自由导致的平庸。&lt;/p&gt;
+&lt;h3 id=&#34;假设空间映射流图-mapping-the-hypothesis-space&#34;&gt;假设空间映射流图 (Mapping the Hypothesis Space)&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;======================================================================
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; [01] THE RAW WORLD (原始世界 / 数据源)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;----------------------------------------------------------------------
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      Chaos, Signals &amp;amp; Random Noise       ---&amp;gt;  D = {(x_i, y_i)}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      (混沌、真实信号与随机噪声交织)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;======================================================================
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                │
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                ▼
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; ┌──────────────────────────────────────────────────────────────────┐
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; │ [02] THE LEARNING ALGORITHM (学习算法：漏斗与优化器)                 │
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; │      Navigating and filtering through the universe of functions  │
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; │      (在广袤的函数宇宙中进行导航与过滤)                               │
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; └──────────────────────────────┬───────────────────────────────────┘
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                │
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                ▼
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; ╔══════════════════════════════════════════════════════════════════╗
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; ║ [03] HYPOTHESIS SPACE (H) / 假设空间                              ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; ║                                                                  ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; ║  ┌────────────────────────────────────────────────────────────┐  ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; ║  │ OUTER ZONE: Unconstrained Chaos (外环：无约束的混沌区)        │  ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; ║  │ &amp;gt; Status: Infinite freedom, excessive capacity.            │  ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; ║  │   (状态：拥有无限的自由度与过剩的表达力)                         │  ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; ║  │ &amp;gt; Flaw:   Perfectly memorizes noise [Overfitting].         │  ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; ║  │   (缺陷：完美背诵随机噪声，陷入过拟合的泥潭)                      │  ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; ║  │                                                            │  ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; ║  │    ↓↓↓ The Shackles (Inductive Bias / 归纳偏置的枷锁) ↓↓↓    │  ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; ║  │                                                            │  ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; ║  │      ┌──────────────────────────────────────────────┐      │  ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; ║  │      │ INNER ZONE: Constrained Subspace             │      │  ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; ║  │      │ (内环：受限的合法子空间)                         │      │  ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; ║  │      │ &amp;gt; Bound by: Architecture &amp;amp; Regularization    │      │  ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; ║  │      │   (约束源：模型架构限制与正则化惩罚等)             │      │  ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; ║  │      │ &amp;gt; Status:   Limited but logically sound      │      │  ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; ║  │      │   (状态：探索被限制，但逻辑自洽且符合常理)         │      │  ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; ║  │      │                                              │      │  ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; ║  │      │                    ★ f*                      │      │  ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; ║  │      │          The Optimal Generalization          │      │  ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; ║  │      │                  (最优泛化解)                  │      │  ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; ║  │      │      (Balance of Performance &amp;amp; Simplicity)   │      │  ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; ║  │      │          (拟合性能与奥卡姆剃刀的完美平衡)         │      │  ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; ║  │      └──────────────────────────────────────────────┘      │  ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; ║  └────────────────────────────────────────────────────────────┘  ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; ╚══════════════════════════════════════════════════════════════════╝
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如上图的架构蓝图所示，从原始数据流的注入到模型最终的收敛，本质上是一场&lt;strong&gt;对抗熵增的降维工程&lt;/strong&gt;。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

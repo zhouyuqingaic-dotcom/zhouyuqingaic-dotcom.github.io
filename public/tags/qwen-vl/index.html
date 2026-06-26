@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Qwen-VL | Yuqing&#39;s Blog</title>
+<meta name="keywords" content="">
+<meta name="description" content="探索深度学习与多模态大模型的深度解读">
+<meta name="author" content="Yuqing">
+<link rel="canonical" href="http://localhost:1313/tags/qwen-vl/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.c2189e7d36d72767de292f8b9d897e4a464aa5bc7eb692cda50064f5eb9eeece.css" integrity="sha256-whiefTbXJ2feKS&#43;LnYl&#43;SkZKpbx&#43;tpLNpQBk9eue7s4=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/tags/qwen-vl/index.xml" title="rss">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/tags/qwen-vl/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><link rel="stylesheet" href="https://cdn.staticfile.net/KaTeX/0.16.9/katex.min.css">
+<script defer src="https://cdn.staticfile.net/KaTeX/0.16.9/katex.min.js"></script>
+<script defer src="https://cdn.staticfile.net/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ],
+            throwOnError : false
+        });
+    });
+</script>
+<meta property="og:url" content="http://localhost:1313/tags/qwen-vl/">
+  <meta property="og:site_name" content="Yuqing&#39;s Blog">
+  <meta property="og:title" content="Qwen-VL">
+  <meta property="og:description" content="探索深度学习与多模态大模型的深度解读">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Qwen-VL">
+  <meta name="twitter:description" content="探索深度学习与多模态大模型的深度解读">
+
+</head>
+<body class="list" id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Yuqing&#39;s Blog (Alt + H)">Yuqing&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/posts/" title="文章解读">
+                    <span>文章解读</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="标签">
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="搜索">
+                    <span>搜索</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header">
+  <h1>
+    Qwen-VL
+  </h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">多模态微调的“不可能三角”：时间步、学习率与 Qwen3VL-LoRA 实战
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> Title: Navigating the Impossible Triangle: Context Length, Learning Rates, and Low-Rank Adaptation in Qwen3VL
+多模态微调的“不可能三角”：时间步、学习率与 Qwen3VL-LoRA 实战 在多模态大模型的训练中，我们常常陷入一种工程错觉：似乎只要喂入足够长的视觉与文本序列（无限延长的时间步），模型就能自然涌现出完美的全局感知。 但这实际上是一个违背深度学习“热力学直觉”的陷阱。 极长的时间步不可避免地带来了信息熵的指数级膨胀与梯度的稀释；与此同时，LoRA 的低秩矩阵（Rank）又在物理层面上为模型划定了极度严苛的知识压缩边界。 在这样狭窄的降维子空间里，试图去拟合海量的高分辨率视觉 Token，无异于用一台普通的民用发动机去强行驱动重型工业机甲——一旦负载过大，系统瞬间就会崩溃（Loss Spike）。 本文想要探讨的核心论点是：在“极度膨胀的长序列”与“极其受限的低秩空间”之间，不存在平滑的自然收敛。 此时，学习率（Learning Rate） 及其背后的调度策略，不再仅仅是一个边缘的超参数， 而是唯一能够打破这一僵局的“节流阀”。 只有赋予模型在低维空间中狂飙的初始加速度，并配合精准的缩放阻尼，我们才能在这个“不可能三角”中，完成从视觉信号到复杂语义的降维打击。
+—— TL;DR
+技术前置：Transformer 架构下的“时间错觉” 在深入探讨之前，我们需要先澄清一个在视觉语言模型（VLM）微调中极易混淆的认知陷阱：为什么一次性传入几万个 Token 进行并行计算，在反向传播时却等同于走过了几万个“时间步”？
+让我们回到“预测下一个 Token”（Next-Token Prediction）的底层数学逻辑中，用精确的工程语言来拆解这个过程：
+1. 前向传播：并行的物理错觉 在训练阶段，我们输入一个完整的长序列 $X = [x_1, x_2, \dots, x_T]$。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2026-04-29 16:00:00 +0800 CST'>April 29, 2026</span>&nbsp;·&nbsp;<span>Yuqing</span></footer>
+  <a class="entry-link" aria-label="post link to 多模态微调的“不可能三角”：时间步、学习率与 Qwen3VL-LoRA 实战" href="http://localhost:1313/posts/navigating-the-impossible-triangle-context-length-learning-rates-and-low-rank-adaptation-in-qwen3vl/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">戴着镣铐的智能：从 Qwen3-VL 看假设空间的约束艺术
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> Title: Intelligence in Chains: The Art of Constraining Hypothesis Space in Qwen3-VL
+“如果把 $f^*$ 看作是一颗被发现的钻石，那么假设空间 $\mathcal{H}$ 就是孕育它的矿脉。没有外部压力的‘约束’，碳原子只会散落成灰；唯有在高压与禁锢的边缘，结构化的智能 (Intelligence) 才会真正涌现。”
+—— 关于泛化与约束的思辨
+1. 序言：从混沌到秩序 在机器学习的宇宙中，每一个模型在诞生之初都面临着一种“无限的诱惑”。
+当我们谈论“学习”时，其本质是在一个名为假设空间（Hypothesis Space, $\mathcal{H}$）的函数集合中进行搜索。这个空间里躺着无数种可能的解释： 有的简单如直线，有的复杂如乱麻。如果这个空间是无边界的， 模型就会像一个拥有无限记忆力却毫无逻辑的孩子， 能够精准地背诵出训练集里的每一个细节（包括噪声），却在面对新面孔时彻底失灵。
+这就是过拟合（Overfitting）的真相——过度自由导致的平庸。
+假设空间映射流图 (Mapping the Hypothesis Space) ====================================================================== [01] THE RAW WORLD (原始世界 / 数据源) ---------------------------------------------------------------------- Chaos, Signals &amp; Random Noise ---&gt; D = {(x_i, y_i)} (混沌、真实信号与随机噪声交织) ====================================================================== │ ▼ ┌──────────────────────────────────────────────────────────────────┐ │ [02] THE LEARNING ALGORITHM (学习算法：漏斗与优化器) │ │ Navigating and filtering through the universe of functions │ │ (在广袤的函数宇宙中进行导航与过滤) │ └──────────────────────────────┬───────────────────────────────────┘ │ ▼ ╔══════════════════════════════════════════════════════════════════╗ ║ [03] HYPOTHESIS SPACE (H) / 假设空间 ║ ║ ║ ║ ┌────────────────────────────────────────────────────────────┐ ║ ║ │ OUTER ZONE: Unconstrained Chaos (外环：无约束的混沌区) │ ║ ║ │ &gt; Status: Infinite freedom, excessive capacity. │ ║ ║ │ (状态：拥有无限的自由度与过剩的表达力) │ ║ ║ │ &gt; Flaw: Perfectly memorizes noise [Overfitting]. │ ║ ║ │ (缺陷：完美背诵随机噪声，陷入过拟合的泥潭) │ ║ ║ │ │ ║ ║ │ ↓↓↓ The Shackles (Inductive Bias / 归纳偏置的枷锁) ↓↓↓ │ ║ ║ │ │ ║ ║ │ ┌──────────────────────────────────────────────┐ │ ║ ║ │ │ INNER ZONE: Constrained Subspace │ │ ║ ║ │ │ (内环：受限的合法子空间) │ │ ║ ║ │ │ &gt; Bound by: Architecture &amp; Regularization │ │ ║ ║ │ │ (约束源：模型架构限制与正则化惩罚等) │ │ ║ ║ │ │ &gt; Status: Limited but logically sound │ │ ║ ║ │ │ (状态：探索被限制，但逻辑自洽且符合常理) │ │ ║ ║ │ │ │ │ ║ ║ │ │ ★ f* │ │ ║ ║ │ │ The Optimal Generalization │ │ ║ ║ │ │ (最优泛化解) │ │ ║ ║ │ │ (Balance of Performance &amp; Simplicity) │ │ ║ ║ │ │ (拟合性能与奥卡姆剃刀的完美平衡) │ │ ║ ║ │ └──────────────────────────────────────────────┘ │ ║ ║ └────────────────────────────────────────────────────────────┘ ║ ╚══════════════════════════════════════════════════════════════════╝ 如上图的架构蓝图所示，从原始数据流的注入到模型最终的收敛，本质上是一场对抗熵增的降维工程。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2026-04-29 16:00:00 +0800 CST'>April 29, 2026</span>&nbsp;·&nbsp;<span>Yuqing</span></footer>
+  <a class="entry-link" aria-label="post link to 戴着镣铐的智能：从 Qwen3-VL 看假设空间的约束艺术" href="http://localhost:1313/posts/intelligence-in-chains-the-art-of-constraining-hypothesis-space-in-qwen3-vl/"></a>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">Yuqing&#39;s Blog</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

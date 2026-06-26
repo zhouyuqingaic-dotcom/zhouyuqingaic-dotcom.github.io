@@ -6,8 +6,148 @@
     <description>Recent content in Tags on Yuqing&#39;s Blog</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 16 Apr 2026 12:07:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 21 Jun 2026 20:00:00 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cross-Attention</title>
+      <link>http://localhost:1313/tags/cross-attention/</link>
+      <pubDate>Sun, 21 Jun 2026 20:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/tags/cross-attention/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Few-Shot Learning</title>
+      <link>http://localhost:1313/tags/few-shot-learning/</link>
+      <pubDate>Sun, 21 Jun 2026 20:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/tags/few-shot-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Flamingo</title>
+      <link>http://localhost:1313/tags/flamingo/</link>
+      <pubDate>Sun, 21 Jun 2026 20:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/tags/flamingo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>In-Context Learning</title>
+      <link>http://localhost:1313/tags/in-context-learning/</link>
+      <pubDate>Sun, 21 Jun 2026 20:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/tags/in-context-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Multi-Modal</title>
+      <link>http://localhost:1313/tags/multi-modal/</link>
+      <pubDate>Sun, 21 Jun 2026 20:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/tags/multi-modal/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>VLM</title>
+      <link>http://localhost:1313/tags/vlm/</link>
+      <pubDate>Sun, 21 Jun 2026 20:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/tags/vlm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Adapter</title>
+      <link>http://localhost:1313/tags/adapter/</link>
+      <pubDate>Sat, 16 May 2026 21:16:00 +0800</pubDate>
+      <guid>http://localhost:1313/tags/adapter/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Bottleneck</title>
+      <link>http://localhost:1313/tags/bottleneck/</link>
+      <pubDate>Sat, 16 May 2026 21:16:00 +0800</pubDate>
+      <guid>http://localhost:1313/tags/bottleneck/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>LLaMA-Adapter</title>
+      <link>http://localhost:1313/tags/llama-adapter/</link>
+      <pubDate>Sat, 16 May 2026 21:16:00 +0800</pubDate>
+      <guid>http://localhost:1313/tags/llama-adapter/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>LoRA</title>
+      <link>http://localhost:1313/tags/lora/</link>
+      <pubDate>Sat, 16 May 2026 21:16:00 +0800</pubDate>
+      <guid>http://localhost:1313/tags/lora/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>PEFT</title>
+      <link>http://localhost:1313/tags/peft/</link>
+      <pubDate>Sat, 16 May 2026 21:16:00 +0800</pubDate>
+      <guid>http://localhost:1313/tags/peft/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Generalization</title>
+      <link>http://localhost:1313/tags/generalization/</link>
+      <pubDate>Wed, 29 Apr 2026 16:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/tags/generalization/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hypothesis Space</title>
+      <link>http://localhost:1313/tags/hypothesis-space/</link>
+      <pubDate>Wed, 29 Apr 2026 16:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/tags/hypothesis-space/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Inductive Bias</title>
+      <link>http://localhost:1313/tags/inductive-bias/</link>
+      <pubDate>Wed, 29 Apr 2026 16:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/tags/inductive-bias/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Loss Spike</title>
+      <link>http://localhost:1313/tags/loss-spike/</link>
+      <pubDate>Wed, 29 Apr 2026 16:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/tags/loss-spike/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Medical VQA</title>
+      <link>http://localhost:1313/tags/medical-vqa/</link>
+      <pubDate>Wed, 29 Apr 2026 16:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/tags/medical-vqa/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>NaN 报错</title>
+      <link>http://localhost:1313/tags/nan-%E6%8A%A5%E9%94%99/</link>
+      <pubDate>Wed, 29 Apr 2026 16:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/tags/nan-%E6%8A%A5%E9%94%99/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Qwen-VL</title>
+      <link>http://localhost:1313/tags/qwen-vl/</link>
+      <pubDate>Wed, 29 Apr 2026 16:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/tags/qwen-vl/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>多模态微调</title>
+      <link>http://localhost:1313/tags/%E5%A4%9A%E6%A8%A1%E6%80%81%E5%BE%AE%E8%B0%83/</link>
+      <pubDate>Wed, 29 Apr 2026 16:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/tags/%E5%A4%9A%E6%A8%A1%E6%80%81%E5%BE%AE%E8%B0%83/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>调参经验</title>
+      <link>http://localhost:1313/tags/%E8%B0%83%E5%8F%82%E7%BB%8F%E9%AA%8C/</link>
+      <pubDate>Wed, 29 Apr 2026 16:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/tags/%E8%B0%83%E5%8F%82%E7%BB%8F%E9%AA%8C/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Computer Vision</title>
       <link>http://localhost:1313/tags/computer-vision/</link>
@@ -20,13 +160,6 @@
       <link>http://localhost:1313/tags/mona/</link>
       <pubDate>Thu, 16 Apr 2026 12:07:00 +0800</pubDate>
       <guid>http://localhost:1313/tags/mona/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>PEFT</title>
-      <link>http://localhost:1313/tags/peft/</link>
-      <pubDate>Thu, 16 Apr 2026 12:07:00 +0800</pubDate>
-      <guid>http://localhost:1313/tags/peft/</guid>
       <description></description>
     </item>
     <item>
@@ -55,13 +188,6 @@
       <link>http://localhost:1313/tags/feature-adapter/</link>
       <pubDate>Mon, 30 Mar 2026 16:00:00 +0800</pubDate>
       <guid>http://localhost:1313/tags/feature-adapter/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Multi-Modal</title>
-      <link>http://localhost:1313/tags/multi-modal/</link>
-      <pubDate>Mon, 30 Mar 2026 16:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/tags/multi-modal/</guid>
       <description></description>
     </item>
     <item>
