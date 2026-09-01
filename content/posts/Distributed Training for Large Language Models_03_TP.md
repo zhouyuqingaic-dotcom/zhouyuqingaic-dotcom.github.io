@@ -1,5 +1,5 @@
 ---
-title: "Distributed Training for Large Language Models_02_TP"
+title: "Distributed Training for Large Language Models_03_TP"
 date: 2026-08-26T10:00:00+08:00
 draft: false
 tags: ["Distributed Training", "DeepSpeed", "ZeRO","TP", "Megatron", "3D Parallelism", "LLM"]
